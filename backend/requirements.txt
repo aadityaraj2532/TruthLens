@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+beautifulsoup4
+requests
+python-dotenv
+transformers
+torch
+groq
+psycopg2-binary
+slowapi

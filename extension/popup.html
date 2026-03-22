@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TruthLens Analyzer</title>
+  <style>
+    body { width: 340px; font-family: 'Inter', system-ui, sans-serif; padding: 16px; background-color: #11111b; color: #cdd6f4; margin: 0; }
+    .header { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; justify-content: center; }
+    .title { font-size: 20px; font-weight: 800; background: linear-gradient(to right, #89b4fa, #f38ba8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+    .card { background-color: rgba(49, 50, 68, 0.4); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 16px; transition: all 0.3s; }
+    .score-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .score-label { font-size: 12px; color: #a6adc8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .score-value { font-size: 36px; font-weight: 900; }
+    .verdict-badge { padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+    .explanation { font-size: 12px; line-height: 1.6; color: #bac2de; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .metric { display: flex; justify-content: space-between; font-size: 11px; margin-top: 8px; color: #a6adc8; font-weight: 500; }
+    
+    button { width: 100%; padding: 12px; background: linear-gradient(to right, #89b4fa, #b4befe); color: #11111b; border: none; border-radius: 8px; font-weight: 800; font-size: 14px; cursor: pointer; transition: opacity 0.2s; display: flex; justify-content: center; gap: 8px; align-items: center; box-shadow: 0 4px 15px rgba(137, 180, 250, 0.3); }
+    button:hover { opacity: 0.9; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .hidden { display: none !important; }
+    .spinner { border: 2px solid rgba(17, 17, 27, 0.2); border-left-color: #11111b; border-radius: 50%; width: 16px; height: 16px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#89b4fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <h1 class="title">TruthLens AI</h1>
+  </div>
+
+  <div id="results" class="card hidden">
+    <div class="score-container">
+      <div class="score-label">Credibility</div>
+      <div id="score" class="score-value text-white">--</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+      <span id="verdict" class="verdict-badge">--</span>
+    </div>
+    <div class="metric"><span>Source Reliability Index:</span> <strong id="domain-trust" style="color: #89b4fa;">--/100</strong></div>
+    
+    <div id="explanation" class="explanation">--</div>
+  </div>
+
+  <p id="status-msg" style="font-size: 11px; color: #a6adc8; text-align: center; margin-bottom: 16px; font-weight: 500;">Ready to scan the active browser tab.</p>
+  
+  <button id="analyze-btn">
+    <span id="btn-text">Audit Webpage</span>
+    <div id="btn-spinner" class="spinner hidden"></div>
+  </button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
