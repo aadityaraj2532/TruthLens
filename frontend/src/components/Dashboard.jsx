@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Loader2, Link as LinkIcon, FileText, Activity, Zap, AlertTriangle, ChevronRight, BarChart2, GitCompare, Download } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
 
 const PREVIEW_CARDS = [
   {
