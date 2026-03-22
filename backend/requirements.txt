@@ -4,6 +4,7 @@ pydantic
 sqlalchemy
 beautifulsoup4
 newspaper3k
+lxml[html_clean]
 requests
 python-dotenv
 groq
