@@ -3,10 +3,9 @@ uvicorn[standard]
 pydantic
 sqlalchemy
 beautifulsoup4
+newspaper3k
 requests
 python-dotenv
-transformers
-torch
 groq
 psycopg2-binary
 slowapi
